@@ -5,6 +5,7 @@ import java.awt.*;
 
 //坦克
 public class Tank {
+    final int size = 110;
     Image tank = new ImageIcon("src/Tank.png").getImage();
     Vec2 pos;
     double dir;
@@ -28,8 +29,7 @@ public class Tank {
         g2.rotate(-dir, pos.x, pos.y);
 
         //Debug: 绘制坦克碰撞箱
-//        int size = 55;
-//        g2.drawOval(pos.x - size, pos.y - size, size * 2, size * 2);
+        g2.drawOval(pos.x - size/2, pos.y - size/2, size, size);
 
     }
 

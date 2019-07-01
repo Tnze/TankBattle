@@ -33,7 +33,7 @@ public class Main {
             try {
                 while (true) {
                     w.repaint();
-                    c.updateBullet();
+                    c.updateItems();
                     pt.update();
                     Thread.sleep(40);
                 }

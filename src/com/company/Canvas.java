@@ -30,8 +30,15 @@ public class Canvas extends JPanel implements TankFireListener {
         g.drawImage(screenBuff, 0, 0, this);
     }
 
-    public void updateBullet() {
+    public void updateItems() {
         Dimension size = this.getSize();
+
+        for (Tank t : tanks) {
+            if (t.pos.x-t.size/2 < 0) t.pos.x = t.size/2;
+            if (t.pos.y-t.size/2 < 0) t.pos.y = t.size/2;
+            if (t.pos.x+t.size/2 > size.width) t.pos.x = size.width-t.size/2;
+            if (t.pos.y+t.size/2 > size.height) t.pos.y = size.height-t.size/2;
+        }
 
         for (Object bobj : bullets.toArray()) {
             Bullet b = (Bullet) bobj;
@@ -46,7 +53,7 @@ public class Canvas extends JPanel implements TankFireListener {
             }
 
             for (Tank t : tanks)
-                if (b.pos.distance(t.pos) < 55) {
+                if (b.pos.distance(t.pos) < t.size/2) {
                     tanks.remove(t);
                     t.distroy();
                     bullets.remove(b);
