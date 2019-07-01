@@ -19,7 +19,6 @@ public class PlayerTank extends Tank implements KeyListener {
                 D = false;
                 break;
 
-
             case KeyEvent.VK_W:
                 W = false;
                 break;
@@ -41,7 +40,6 @@ public class PlayerTank extends Tank implements KeyListener {
                 D = true;
                 break;
 
-
             case KeyEvent.VK_W:
                 W = true;
                 break;
@@ -55,10 +53,10 @@ public class PlayerTank extends Tank implements KeyListener {
         }
     }
 
-    public void update(){
+    public void update() {
         if (W) pos.add(dirVec(dir, 6));
         if (S) pos.add(dirVec(dir, -3));
-        if (A)  dir -= 0.05;
-        if (D)  dir += 0.05;
+        if (A) dir -= 0.05;
+        if (D) dir += 0.05;
     }
 }
