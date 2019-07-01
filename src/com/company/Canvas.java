@@ -5,8 +5,8 @@ import java.awt.*;
 import java.util.HashSet;
 import java.util.Set;
 
-//窗口
-public class Windows extends JFrame implements TankFireListener {
+//游戏区域
+public class Canvas extends JPanel implements TankFireListener {
     //坦克集合
     Set<Tank> tanks = new HashSet<Tank>();
     Set<Bullet> bullets = new HashSet<Bullet>();
@@ -34,10 +34,11 @@ public class Windows extends JFrame implements TankFireListener {
         Dimension size = this.getSize();
 
         for (Object bobj : bullets.toArray()) {
-            Bullet b = (Bullet)bobj;
+            Bullet b = (Bullet) bobj;
             b.update();
-            if (b.pos.x < 0 ||
-                    b.pos.y < 0 ||
+
+            if (b.pos.x + b.size < 0 ||
+                    b.pos.y + b.size < 0 ||
                     b.pos.x > size.width ||
                     b.pos.y > size.width) {
                 bullets.remove(b);

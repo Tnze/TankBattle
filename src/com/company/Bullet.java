@@ -6,14 +6,15 @@ import java.awt.event.KeyEvent;
 import java.util.List;
 
 
-public class Bullet {
-    public Vec2 pos;
-    public double dir;
+class Bullet {
+    final int size = 15;//直径
+
+    Vec2 pos;
+    double dir;
 
     public void paint(Graphics g) {
         g.setColor(Color.black);
-//        g.drawOval(pos.x, pos.y, 15, 15);
-        g.fillOval(pos.x, pos.y, 15, 15);
+        g.fillOval(pos.x, pos.y, size, size);
     }
 
     public void update() {
